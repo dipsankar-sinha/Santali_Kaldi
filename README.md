@@ -1,17 +1,17 @@
 
 
-This is the Kaldi baseline script for Subtask 1 - Multilingual ASR for 6 Indian languages (Gujarati, Hindi, Marathi, Odia, Tamil, Telugu).
+This is the Kaldi baseline script for Subtask 1 - Multilingual ASR for Santali Language.
 
-The baseline model has been developed on the kaldi version compiled as of __Jan 31, 2021__.
+The baseline model has been developed on the kaldi version compiled as of __May 16, 2024__.
 
-**NOTE**: The Tamil, Telugu and Gujarati data were downsampled to **8kHz** (from 16kHz) before running the baseline recipe. **The baseline model is developed with all the audio data (of the 6 languages) at 8kHz.**
+**NOTE**: The Santali data were downsampled to **8kHz** before running the baseline recipe. 
 
 To downsample an audio file to 8kHz, `ffmpeg` tool can be used as follows:
 
 ```bash
 ffmpeg -i source.wav -ar 8000 destination.wav
 ```
-where `source.wav` is the source audio file (at 16kHz in this case for Tamil, Telugu and Gujarati), and `destination.wav` is the destination audio file downsampled to 8kHz.
+where `source.wav` is the source audio file (at 16kHz in this case for Santali), and `destination.wav` is the destination audio file downsampled to 8kHz.
 
 ## Software Setup Instructions
 These recipes are built to work with [Kaldi](https://github.com/kaldi-asr/kaldi), an ASR framework. Please install Kaldi by following instructions in the README at https://github.com/kaldi-asr/kaldi.
@@ -30,7 +30,7 @@ The following is to be completed before executing the `run.sh` script:
 
 ### Audio data directory organization
 
-The dataset of the 6 languages associated with subtask 1 (Gujarati, Hindi, Marathi, Odia, Tamil, Telugu) must be organized in a single folder in a particular format. In the `run.sh` script, provide the full path to the audio data folder containing the data of all the 6 languages, organized as mentioned below. For example, if the folder containing all the data is `IS21_subtask_1_data`, and say the path to this folder is `/home/user/Downloads/IS21_subtask_1_data`, then in `run.sh`, 
+The dataset of the 6 languages associated with subtask 1 (Santali) must be organized in a single folder in a particular format. In the `run.sh` script, provide the full path to the audio data folder containing the data of all the 6 languages, organized as mentioned below. For example, if the folder containing all the data is `IS21_subtask_1_data`, and say the path to this folder is `/home/user/Downloads/IS21_subtask_1_data`, then in `run.sh`, 
  
  replace:
 ```bash
@@ -45,48 +45,13 @@ path_to_data='/home/user/Downloads/IS21_subtask_1_data'
  (__NOTE__: names of directories and files are case-sensitive and should exactly match):
 ```bash
 IS21_subtask_1_data
-├── Gujarati
+├── Santali
 │   ├── test
 │   │   ├── audio
 │   │   └── transcription.txt
 │   └── train
 │       ├── audio
 │       └── transcription.txt
-├── Hindi
-│   ├── test
-│   │   ├── audio
-│   │   └── transcription.txt
-│   └── train
-│       ├── audio
-│       └── transcription.txt
-├── Marathi
-│   ├── test
-│   │   ├── audio
-│   │   └── transcription.txt
-│   └── train
-│       ├── audio
-│       └── transcription.txt
-├── Odia
-│   ├── test
-│   │   ├── audio
-│   │   └── transcription.txt
-│   └── train
-│       ├── audio
-│       └── transcription.txt
-├── Tamil
-│   ├── test
-│   │   ├── audio
-│   │   └── transcription.txt
-│   └── train
-│       ├── audio
-│       └── transcription.txt
-└── Telugu
-    ├── test
-    │   ├── audio
-    │   └── transcription.txt
-    └── train
-        ├── audio
-        └── transcription.txt
 
 30 directories, 12 files
 ```
